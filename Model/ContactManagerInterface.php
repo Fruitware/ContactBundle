@@ -21,15 +21,15 @@ interface ContactManagerInterface
     /**
      * Creates and returns a new contact instance
      *
-     * @return ContactInterface
+     * @return BaseContactInterface
      */
     public function create();
 
     /**
      * Saves the given contact in configured storage system
      *
-     * @param ContactInterface $contact A contact instance
-     * @param boolean          $flush   TRUE whether you want to synchronize with the database
+     * @param BaseContactInterface $contact A contact instance
+     * @param boolean              $flush   TRUE whether you want to synchronize with the database
      */
-    public function save(ContactInterface $contact, $flush = false);
+    public function save(BaseContactInterface $contact, $flush = false);
 }

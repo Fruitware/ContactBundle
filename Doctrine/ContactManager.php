@@ -13,7 +13,7 @@ namespace Mremi\ContactBundle\Doctrine;
 
 use Doctrine\Common\Persistence\ObjectManager;
 
-use Mremi\ContactBundle\Model\ContactInterface;
+use Mremi\ContactBundle\Model\BaseContactInterface;
 use Mremi\ContactBundle\Model\ContactManager as BaseContactManager;
 
 /**
@@ -44,7 +44,7 @@ class ContactManager extends BaseContactManager
     /**
      * {@inheritdoc}
      */
-    public function save(ContactInterface $contact, $flush = false)
+    public function save(BaseContactInterface $contact, $flush = false)
     {
         $this->objectManager->persist($contact);
 

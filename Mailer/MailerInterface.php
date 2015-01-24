@@ -11,7 +11,7 @@
 
 namespace Mremi\ContactBundle\Mailer;
 
-use Mremi\ContactBundle\Model\ContactInterface;
+use Mremi\ContactBundle\Model\BaseContactInterface;
 
 /**
  * Mailer interface
@@ -23,9 +23,9 @@ interface MailerInterface
     /**
      * Sends an email
      *
-     * @param ContactInterface $contact
+     * @param BaseContactInterface $contact
      *
      * @return integer
      */
-    public function sendMessage(ContactInterface $contact);
+    public function sendMessage(BaseContactInterface $contact);
 }

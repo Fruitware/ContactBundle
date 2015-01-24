@@ -44,7 +44,7 @@ class ContactManager implements ContactManagerInterface
     /**
      * {@inheritdoc}
      */
-    public function save(ContactInterface $contact, $flush = false)
+    public function save(BaseContactInterface $contact, $flush = false)
     {
         // nothing to do, just to be compliant with the created alias
     }

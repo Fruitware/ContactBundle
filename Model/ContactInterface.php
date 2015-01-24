@@ -16,27 +16,13 @@ namespace Mremi\ContactBundle\Model;
  *
  * @author Rémi Marseille <marseille.remi@gmail.com>
  */
-interface ContactInterface extends \Serializable
+interface ContactInterface extends BaseContactInterface
 {
     /**
      * Possible title values
      */
     const TITLE_MR  = 'mr';
     const TITLE_MRS = 'mrs';
-
-    /**
-     * Sets the created at
-     *
-     * @param \DateTime $createdAt
-     */
-    public function setCreatedAt(\DateTime $createdAt);
-
-    /**
-     * Gets the created at
-     *
-     * @return \DateTime
-     */
-    public function getCreatedAt();
 
     /**
      * Sets the email address
@@ -151,18 +137,4 @@ interface ContactInterface extends \Serializable
      * @return array
      */
     public static function getTitleKeys();
-
-    /**
-     * Gets an array representation
-     *
-     * @return array
-     */
-    public function toArray();
-
-    /**
-     * Loads the object by the given data
-     *
-     * @param array $data
-     */
-    public function fromArray(array $data);
 }
