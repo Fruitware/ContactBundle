@@ -8,8 +8,8 @@
         <service id="mremi_contact.mailer.twig_swift" class="Mremi\ContactBundle\Mailer\TwigSwiftMailer" public="false">
             <argument type="service" id="mailer" />
             <argument type="service" id="twig" />
-            <argument />
-            <argument />
+            <argument>%mremi_contact.email.recipient_address%</argument>
+            <argument>%mremi_contact.email.template%</argument>
         </service>
     </services>
 

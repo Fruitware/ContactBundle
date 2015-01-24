@@ -95,14 +95,9 @@ class MremiContactExtension extends Extension
     {
         $container->setAlias('mremi_contact.mailer', $config['email']['mailer']);
 
-        if ('mremi_contact.mailer.twig_swift' !== $config['email']['mailer']) {
-            return;
-        }
-
         $loader->load('mailer.xml');
 
-        $definition = $container->findDefinition('mremi_contact.mailer');
-        $definition->replaceArgument(2, $config['email']['recipient_address']);
-        $definition->replaceArgument(3, $config['email']['template']);
+        $container->setParameter('mremi_contact.email.recipient_address', $config['email']['recipient_address']);
+        $container->setParameter('mremi_contact.email.template',          $config['email']['template']);
     }
 }
