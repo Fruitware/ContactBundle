@@ -11,7 +11,7 @@
 
 namespace Mremi\ContactBundle\Event;
 
-use Mremi\ContactBundle\Model\ContactInterface;
+use Mremi\ContactBundle\Model\BaseContactInterface;
 
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -35,7 +35,7 @@ class FilterContactResponseEvent extends ContactEvent
      * @param Request          $request  A request instance
      * @param Response         $response A response instance
      */
-    public function __construct(ContactInterface $contact, Request $request, Response $response)
+    public function __construct(BaseContactInterface $contact, Request $request, Response $response)
     {
         parent::__construct($contact, $request);
 

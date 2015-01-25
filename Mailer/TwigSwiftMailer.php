@@ -11,7 +11,7 @@
 
 namespace Mremi\ContactBundle\Mailer;
 
-use Mremi\ContactBundle\Model\ContactInterface;
+use Mremi\ContactBundle\Model\BaseContactInterface;
 
 /**
  * Twig Swift mailer class
@@ -59,7 +59,7 @@ class TwigSwiftMailer implements MailerInterface
     /**
      * {@inheritdoc}
      */
-    public function sendMessage(ContactInterface $contact)
+    public function sendMessage(BaseContactInterface $contact)
     {
         $context = array(
             'contact' => $contact,

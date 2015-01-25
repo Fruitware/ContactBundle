@@ -11,7 +11,7 @@
 
 namespace Mremi\ContactBundle\Event;
 
-use Mremi\ContactBundle\Model\ContactInterface;
+use Mremi\ContactBundle\Model\BaseContactInterface;
 
 use Symfony\Component\EventDispatcher\Event;
 use Symfony\Component\HttpFoundation\Request;
@@ -29,17 +29,17 @@ class ContactEvent extends Event
     private $request;
 
     /**
-     * @var ContactInterface
+     * @var BaseContactInterface
      */
     private $contact;
 
     /**
      * Constructor
      *
-     * @param ContactInterface $contact A contact instance
-     * @param Request          $request A request instance
+     * @param BaseContactInterface $contact A contact instance
+     * @param Request              $request A request instance
      */
-    public function __construct(ContactInterface $contact, Request $request)
+    public function __construct(BaseContactInterface $contact, Request $request)
     {
         $this->contact = $contact;
         $this->request = $request;
@@ -48,7 +48,7 @@ class ContactEvent extends Event
     /**
      * Gets the contact
      *
-     * @return ContactInterface
+     * @return BaseContactInterface
      */
     public function getContact()
     {

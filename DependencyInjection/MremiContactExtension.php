@@ -36,6 +36,7 @@ class MremiContactExtension extends Extension
         $loader->load('controller.xml');
         $loader->load('form.xml');
         $loader->load('listeners.xml');
+        $loader->load('block.xml');
 
         $this->configureContactManager($container, $config, $loader);
         $this->configureForm($container, $config);
@@ -75,21 +76,12 @@ class MremiContactExtension extends Extension
      */
     private function configureForm(ContainerBuilder $container, array $config)
     {
-        $definition = $container->getDefinition('mremi_contact.form_factory');
-        $definition->replaceArgument(1, $config['form']['name']);
-        $definition->replaceArgument(2, $config['form']['type']);
-        $definition->replaceArgument(3, $config['form']['validation_groups']);
+        $container->setParameter('mremi_contact.form.name', $config['form']['name']);
+        $container->setParameter('mremi_contact.form.type', $config['form']['type']);
+        $container->setParameter('mremi_contact.form.validation_groups', $config['form']['validation_groups']);
 
-        if ('mremi_contact' !== $config['form']['type']) {
-            $container->removeDefinition('mremi_contact.contact_form_type');
-
-            return;
-        }
-
-        $definition = $container->getDefinition('mremi_contact.contact_form_type');
-        $definition->replaceArgument(0, new Reference($config['form']['subject_provider']));
-        $definition->replaceArgument(1, $config['contact_class']);
-        $definition->replaceArgument(2, $config['form']['captcha_type']);
+        $container->setParameter('mremi_contact.contact.class',     $config['contact_class']);
+        $container->setParameter('mremi_contact.form.captcha_type', $config['form']['captcha_type']);
     }
 
     /**
@@ -103,14 +95,9 @@ class MremiContactExtension extends Extension
     {
         $container->setAlias('mremi_contact.mailer', $config['email']['mailer']);
 
-        if ('mremi_contact.mailer.twig_swift' !== $config['email']['mailer']) {
-            return;
-        }
-
         $loader->load('mailer.xml');
 
-        $definition = $container->findDefinition('mremi_contact.mailer');
-        $definition->replaceArgument(2, $config['email']['recipient_address']);
-        $definition->replaceArgument(3, $config['email']['template']);
+        $container->setParameter('mremi_contact.email.recipient_address', $config['email']['recipient_address']);
+        $container->setParameter('mremi_contact.email.template',          $config['email']['template']);
     }
 }

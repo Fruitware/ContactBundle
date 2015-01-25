@@ -16,7 +16,7 @@ namespace Mremi\ContactBundle\Model;
  *
  * @author Rémi Marseille <marseille.remi@gmail.com>
  */
-class Contact implements ContactInterface
+class Contact extends BaseContact implements ContactInterface
 {
     /**
      * @var string
@@ -47,35 +47,6 @@ class Contact implements ContactInterface
      * @var string
      */
     protected $message;
-
-    /**
-     * @var \DateTime
-     */
-    protected $createdAt;
-
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->setCreatedAt(new \DateTime);
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function setCreatedAt(\DateTime $createdAt)
-    {
-        $this->createdAt = $createdAt;
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function getCreatedAt()
-    {
-        return $this->createdAt;
-    }
 
     /**
      * {@inheritdoc}
@@ -221,42 +192,15 @@ class Contact implements ContactInterface
      */
     public function toArray()
     {
-        return array(
+        $baseArray = parent::toArray();
+
+        return array_merge($baseArray, array(
             'title'     => $this->title,
             'firstName' => $this->firstName,
             'lastName'  => $this->lastName,
             'email'     => $this->email,
             'subject'   => $this->subject,
             'message'   => $this->message,
-            'createdAt' => $this->createdAt->format('c'),
-        );
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function fromArray(array $data)
-    {
-        foreach ($data as $property => $value) {
-            $method = sprintf('set%s', ucfirst($property));
-
-            $this->$method('createdAt' === $property ? new \DateTime($value) : $value);
-        }
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function serialize()
-    {
-        return serialize($this->toArray());
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function unserialize($data)
-    {
-        $this->fromArray(unserialize($data));
+        ));
     }
 }
