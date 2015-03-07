@@ -1,9 +1,9 @@
 {
-    "name": "mremi/contact-bundle",
+    "name": "fruitware/contact-bundle",
     "type": "symfony-bundle",
     "description": "Implementation of a contact form for Symfony2",
     "keywords": ["Symfony2", "contact", "form"],
-    "homepage": "https://github.com/mremi/ContactBundle",
+    "homepage": "https://github.com/Fruitware/ContactBundle",
     "license": "MIT",
     "authors": [
         {
