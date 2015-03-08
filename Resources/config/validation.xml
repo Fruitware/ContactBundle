@@ -6,15 +6,6 @@
 
     <class name="Fruitware\ContactBundle\Model\Contact">
 
-        <property name="title">
-            <constraint name="NotBlank">
-                <option name="message">fruitware_contact.title.blank</option>
-            </constraint>
-            <constraint name="Choice">
-                <option name="callback">getTitleKeys</option>
-            </constraint>
-        </property>
-
         <property name="firstName">
             <constraint name="NotBlank">
                 <option name="message">fruitware_contact.first_name.blank</option>

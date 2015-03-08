@@ -139,63 +139,11 @@ class Contact extends BaseContact implements ContactInterface
     /**
      * {@inheritdoc}
      */
-    public function setTitle($title)
-    {
-        $validTitles = self::getTitleKeys();
-
-        if (!in_array($title, $validTitles)) {
-            throw new \InvalidArgumentException(sprintf('Invalid title %s, possible values are: %s', $title, implode(', ', $validTitles)));
-        }
-
-        $this->title = $title;
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function getTitle()
-    {
-        return $this->title;
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function getTitleValue()
-    {
-        $titles = self::getTitles();
-
-        return $titles[$this->title];
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public static function getTitles()
-    {
-        return array(
-            self::TITLE_MR  => 'fruitware_contact.form.title_mr',
-            self::TITLE_MRS => 'fruitware_contact.form.title_mrs',
-        );
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public static function getTitleKeys()
-    {
-        return array_keys(self::getTitles());
-    }
-
-    /**
-     * {@inheritdoc}
-     */
     public function toArray()
     {
         $baseArray = parent::toArray();
 
         return array_merge($baseArray, array(
-            'title'     => $this->title,
             'firstName' => $this->firstName,
             'lastName'  => $this->lastName,
             'email'     => $this->email,

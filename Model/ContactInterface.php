@@ -19,12 +19,6 @@ namespace Fruitware\ContactBundle\Model;
 interface ContactInterface extends BaseContactInterface
 {
     /**
-     * Possible title values
-     */
-    const TITLE_MR  = 'mr';
-    const TITLE_MRS = 'mrs';
-
-    /**
      * Sets the email address
      *
      * @param string $email
@@ -100,41 +94,4 @@ interface ContactInterface extends BaseContactInterface
      * @return string
      */
     public function getSubject();
-
-    /**
-     * Sets the title
-     *
-     * @param string $title
-     *
-     * @throws \InvalidArgumentException
-     */
-    public function setTitle($title);
-
-    /**
-     * Gets the title
-     *
-     * @return string
-     */
-    public function getTitle();
-
-    /**
-     * Gets the title value
-     *
-     * @return string
-     */
-    public function getTitleValue();
-
-    /**
-     * Gets an array of possible titles
-     *
-     * @return array
-     */
-    public static function getTitles();
-
-    /**
-     * Gets an array of possible title keys
-     *
-     * @return array
-     */
-    public static function getTitleKeys();
 }

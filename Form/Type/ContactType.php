@@ -11,7 +11,6 @@
 
 namespace Fruitware\ContactBundle\Form\Type;
 
-use Fruitware\ContactBundle\Model\Contact;
 use Fruitware\ContactBundle\Provider\SubjectProviderInterface;
 
 use Symfony\Component\Form\AbstractType;
@@ -60,11 +59,6 @@ class ContactType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('title', 'choice', array(
-                'choices'  => Contact::getTitles(),
-                'expanded' => true,
-                'label'    => 'fruitware_contact.form.title',
-            ))
             ->add('firstName', 'text',  array('label' => 'fruitware_contact.form.first_name'))
             ->add('lastName',  'text',  array('label' => 'fruitware_contact.form.last_name'))
             ->add('email',     'email', array('label' => 'fruitware_contact.form.email'));

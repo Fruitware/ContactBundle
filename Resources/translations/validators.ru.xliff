@@ -4,71 +4,71 @@
         <body>
             <trans-unit id="fruitware_contact.first_name.blank">
                 <source>fruitware_contact.first_name.blank</source>
-                <target>Merci de saisir votre prénom</target>
+                <target>Укажите Ваше имя</target>
             </trans-unit>
             <trans-unit id="fruitware_contact.first_name.short">
                 <source>fruitware_contact.first_name.short</source>
-                <target>[-Inf,Inf]Votre prénom est trop court</target>
+                <target>Указано слишком короткое значение имени</target>
             </trans-unit>
             <trans-unit id="fruitware_contact.first_name.long">
                 <source>fruitware_contact.first_name.long</source>
-                <target>[-Inf,Inf]Votre prénom est trop long</target>
+                <target>Указано слишком длинное значение имени</target>
             </trans-unit>
             <trans-unit id="fruitware_contact.last_name.blank">
                 <source>fruitware_contact.last_name.blank</source>
-                <target>Merci de saisir votre nom</target>
+                <target>Укажите Вашу фамилию</target>
             </trans-unit>
             <trans-unit id="fruitware_contact.last_name.short">
                 <source>fruitware_contact.last_name.short</source>
-                <target>[-Inf,Inf]Votre nom est trop court</target>
+                <target>Указано слишком короткое значение фамилии</target>
             </trans-unit>
             <trans-unit id="fruitware_contact.last_name.long">
                 <source>fruitware_contact.last_name.long</source>
-                <target>[-Inf,Inf]Votre nom est trop long</target>
+                <target>Указано слишком длинное значение фамилии</target>
             </trans-unit>
             <trans-unit id="fruitware_contact.email.blank">
                 <source>fruitware_contact.email.blank</source>
-                <target>Merci de saisir votre adresse e-mail</target>
+                <target>Укажите Ваш email</target>
             </trans-unit>
             <trans-unit id="fruitware_contact.email.short">
                 <source>fruitware_contact.email.short</source>
-                <target>[-Inf,Inf]Votre adresse e-mail est trop courte</target>
+                <target>Указано слишком короткое значение email</target>
             </trans-unit>
             <trans-unit id="fruitware_contact.email.long">
                 <source>fruitware_contact.email.long</source>
-                <target>[-Inf,Inf]Votre adresse e-mail est trop longue</target>
+                <target>Указано слишком длинное значение email</target>
             </trans-unit>
             <trans-unit id="fruitware_contact.email.invalid">
                 <source>fruitware_contact.email.invalid</source>
-                <target>Votre adresse e-mail est invalide</target>
+                <target>Указан неверный формат email</target>
             </trans-unit>
             <trans-unit id="fruitware_contact.subject.blank">
                 <source>fruitware_contact.subject.blank</source>
-                <target>Merci de saisir un sujet</target>
+                <target>Укажите тему письма</target>
             </trans-unit>
             <trans-unit id="fruitware_contact.subject.short">
                 <source>fruitware_contact.subject.short</source>
-                <target>[-Inf,Inf]Votre sujet est trop court</target>
+                <target>Указано слишком короткое значение темы письма</target>
             </trans-unit>
             <trans-unit id="fruitware_contact.subject.long">
                 <source>fruitware_contact.subject.long</source>
-                <target>[-Inf,Inf]Votre sujet est trop long</target>
+                <target>Указано слишком длинное значение темы письма</target>
             </trans-unit>
             <trans-unit id="fruitware_contact.message.blank">
                 <source>fruitware_contact.message.blank</source>
-                <target>Merci de saisir un message</target>
+                <target>Введите сообщение</target>
             </trans-unit>
             <trans-unit id="fruitware_contact.message.short">
                 <source>fruitware_contact.message.short</source>
-                <target>[-Inf,Inf]Votre message est trop court</target>
+                <target>Сообщение слишком короткое</target>
             </trans-unit>
             <trans-unit id="fruitware_contact.message.long">
                 <source>fruitware_contact.message.long</source>
-                <target>[-Inf,Inf]Votre message est trop long</target>
+                <target>Сообщение слишком длинное</target>
             </trans-unit>
             <trans-unit id="fruitware_contact.created_at.invalid">
                 <source>fruitware_contact.created_at.invalid</source>
-                <target>La date de création est invalide</target>
+                <target>Неверный формат даты созздания</target>
             </trans-unit>
         </body>
     </file>

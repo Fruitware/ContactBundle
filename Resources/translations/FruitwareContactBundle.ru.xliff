@@ -4,19 +4,19 @@
         <body>
             <trans-unit id="fruitware_contact.form_page_title">
                 <source>fruitware_contact.form_page_title</source>
-                <target>Contact</target>
+                <target>Обратная связь</target>
             </trans-unit>
             <trans-unit id="fruitware_contact.form_title">
                 <source>fruitware_contact.form_title</source>
-                <target>Contact form</target>
+                <target>Свяжитесь с нами</target>
             </trans-unit>
             <trans-unit id="fruitware_contact.form.first_name">
                 <source>fruitware_contact.form.first_name</source>
-                <target>First name</target>
+                <target>Имя</target>
             </trans-unit>
             <trans-unit id="fruitware_contact.form.last_name">
                 <source>fruitware_contact.form.last_name</source>
-                <target>Last name</target>
+                <target>Фамилия</target>
             </trans-unit>
             <trans-unit id="fruitware_contact.form.email">
                 <source>fruitware_contact.form.email</source>
@@ -24,36 +24,34 @@
             </trans-unit>
             <trans-unit id="fruitware_contact.form.subject">
                 <source>fruitware_contact.form.subject</source>
-                <target>Subject</target>
+                <target>Тема</target>
             </trans-unit>
             <trans-unit id="fruitware_contact.form.message">
                 <source>fruitware_contact.form.message</source>
-                <target>Message</target>
+                <target>Сообщение</target>
             </trans-unit>
             <trans-unit id="fruitware_contact.form.captcha">
                 <source>fruitware_contact.form.captcha</source>
-                <target>Security code</target>
+                <target>Введите код</target>
             </trans-unit>
             <trans-unit id="fruitware_contact.form_submit">
                 <source>fruitware_contact.form_submit</source>
-                <target>Send</target>
+                <target>Отправить</target>
             </trans-unit>
             <trans-unit id="fruitware_contact.email_message_txt">
                 <source>fruitware_contact.email_message_txt</source>
-                <target><![CDATA[Hello,
+                <target><![CDATA[Привет,
 
-A user has filled the contact form:
+Пользователь заполнил контактную форму:
 
-First name: %firstName%
+Имя: %firstName%
 
-Last name: %lastName%
+Фамилия: %lastName%
 
 Email: %email%
 
-Message:
+Сообщение:
 %message%
-
-Regards
 ]]></target>
             </trans-unit>
             <trans-unit id="fruitware_contact.email_message_html">
@@ -61,19 +59,19 @@ Regards
                 <target><![CDATA[Hello,
 <br/>
 <br/>
-A user has filled the contact form:
+Пользователь заполнил контактную форму:
 <br/>
 <br/>
-<strong><em>First name:</em></strong> %firstName%
+<strong><em>Имя:</em></strong> %firstName%
 <br/>
 <br/>
-<strong><em>Last name:</em></strong> %lastName%
+<strong><em>Фамилия:</em></strong> %lastName%
 <br/>
 <br/>
 <strong><em>Email:</em></strong> %email%
 <br/>
 <br/>
-<strong><em>Message:</em></strong>
+<strong><em>Сообщение:</em></strong>
 <br/>
 %message%
 <br/>
@@ -83,15 +81,15 @@ Regards
             </trans-unit>
             <trans-unit id="fruitware_contact.confirm_page_title">
                 <source>fruitware_contact.confirm_page_title</source>
-                <target>Confirmation</target>
+                <target>Форма успешно отослана</target>
             </trans-unit>
             <trans-unit id="fruitware_contact.confirm_title">
                 <source>fruitware_contact.confirm_title</source>
-                <target>Thank you %fullName%</target>
+                <target>Спасибо %fullName%</target>
             </trans-unit>
             <trans-unit id="fruitware_contact.confirm_message">
                 <source>fruitware_contact.confirm_message</source>
-                <target>Your request has been submitted successfully and will be considered quickly.</target>
+                <target>Ваш запрос был успешно отправлено и будет обработан как можно быстрее.</target>
             </trans-unit>
         </body>
     </file>
