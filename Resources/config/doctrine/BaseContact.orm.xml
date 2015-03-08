@@ -4,12 +4,10 @@
                   xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping
                   http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
 
-    <mapped-superclass name="Fruitware\ContactBundle\Entity\Contact">
+    <mapped-superclass name="Fruitware\ContactBundle\Entity\BaseContact">
 
         <field name="firstName" column="first_name" type="string"   length="255" />
-        <field name="lastName"  column="last_name"  type="string"   length="255" />
         <field name="email"     column="email"      type="string"   length="255" />
-        <field name="subject"   column="subject"    type="string"   length="255" />
         <field name="message"   column="message"    type="text"     length="5000" />
         <field name="createdAt" column="created_at" type="datetime"              />
 

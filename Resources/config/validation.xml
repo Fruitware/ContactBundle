@@ -58,7 +58,7 @@
             <constraint name="Length">
                 <option name="min">2</option>
                 <option name="minMessage">fruitware_contact.message.short</option>
-                <option name="max">500</option>
+                <option name="max">5000</option>
                 <option name="maxMessage">fruitware_contact.message.long</option>
                 <option name="groups">
                     <value>Default</value>
@@ -166,7 +166,7 @@
             <constraint name="Length">
                 <option name="min">2</option>
                 <option name="minMessage">fruitware_contact.message.short</option>
-                <option name="max">500</option>
+                <option name="max">5000</option>
                 <option name="maxMessage">fruitware_contact.message.long</option>
                 <option name="groups">
                     <value>Default</value>

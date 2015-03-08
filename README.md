@@ -109,7 +109,7 @@ to make it easier to create your entity. Here is how you use it:
 
 namespace Acme\ContactBundle\Entity;
 
-use Fruitware\ContactBundle\Entity\Contact as BaseContact;
+use Fruitware\ContactBundle\Entity\BaseContact;
 
 class Contact extends BaseContact
 {
