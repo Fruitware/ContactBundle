@@ -148,10 +148,10 @@ However you have to configure at least a recipient address.
 # app/config/config.yml
 fruitware_contact:
     store_data:            false
-    contact_class:         Fruitware\ContactBundle\Model\Contact
+    contact_class:         Fruitware\ContactBundle\Model\BaseContact # or Fruitware\ContactBundle\Model\Contact for fruitware_contact_full
 
     form:
-        type:              fruitware_contact
+        type:              fruitware_contact_base # or fruitware_contact_full for Fruitware\ContactBundle\Model\Contact
         name:              contact_form
         validation_groups: [Default]
         subject_provider:  fruitware_contact.subject_provider.noop
@@ -229,11 +229,6 @@ You can now access to the contact form at `http://example.com/app_dev.php/contac
 > If your are in debug mode (see your front controller), the HTML5 validation
 > can be disabled by adding `?novalidate=1` to the URL.
 
-## Bootstrap
-
-[Bootstrap framework](http://getbootstrap.com/) v3.0.2 is loaded and used in templates
-provided by this bundle.
-
 ![Screenshot](https://raw.github.com/fruitware/ContactBundle/master/Resources/doc/images/form.png)
 
 ## Customization
@@ -262,4 +257,4 @@ A feature is missing here? Feel free to create a pull request to solve it!
 I hope this has been useful and has helped you. If so, share it and recommend
 it! :)
 
-[@fruitwaretsme](https://twitter.com/fruitwaretsme)
+[This bundle was forked and finalized](https://github.com/SocialbitGmbH/ContactBundle)
