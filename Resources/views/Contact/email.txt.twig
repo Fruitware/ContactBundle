@@ -1,10 +1,14 @@
 {% trans_default_domain 'FruitwareContactBundle' %}
 
+{% block default_subject %}
+    {{ 'fruitware_contact.email_default_subject'|trans }}
+{% endblock %}
+
 {% block body_text %}
 {% autoescape false %}
 {{ 'fruitware_contact.email_message_txt'|trans({
     '%firstName%': contact.firstName,
-    '%lastName%':  contact.lastName,
+    '%lastName%':  contact.lastName|default(''),
     '%email%':     contact.email,
     '%message%':   contact.message
 }) }}
@@ -15,7 +19,7 @@
 {% autoescape false %}
 {{ 'fruitware_contact.email_message_html'|trans({
     '%firstName%': contact.firstName,
-    '%lastName%':  contact.lastName,
+    '%lastName%':  contact.lastName|default(''),
     '%email%':     contact.email,
     '%message%':   contact.message|nl2br
 }) }}

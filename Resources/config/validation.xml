@@ -4,74 +4,182 @@
     xsi:schemaLocation="http://symfony.com/schema/dic/constraint-mapping
         http://symfony.com/schema/dic/constraint-mapping/constraint-mapping-1.0.xsd">
 
-    <class name="Fruitware\ContactBundle\Model\Contact">
+    <class name="Fruitware\ContactBundle\Model\BaseContact">
 
         <property name="firstName">
             <constraint name="NotBlank">
                 <option name="message">fruitware_contact.first_name.blank</option>
+                <option name="groups">
+                    <value>Default</value>
+                </option>
             </constraint>
             <constraint name="Length">
                 <option name="min">2</option>
                 <option name="minMessage">fruitware_contact.first_name.short</option>
                 <option name="max">50</option>
                 <option name="maxMessage">fruitware_contact.first_name.long</option>
-            </constraint>
-        </property>
-
-        <property name="lastName">
-            <constraint name="NotBlank">
-                <option name="message">fruitware_contact.last_name.blank</option>
-            </constraint>
-            <constraint name="Length">
-                <option name="min">2</option>
-                <option name="minMessage">fruitware_contact.last_name.short</option>
-                <option name="max">50</option>
-                <option name="maxMessage">fruitware_contact.last_name.long</option>
+                <option name="groups">
+                    <value>Default</value>
+                </option>
             </constraint>
         </property>
 
         <property name="email">
             <constraint name="NotBlank">
                 <option name="message">fruitware_contact.email.blank</option>
+                <option name="groups">
+                    <value>Default</value>
+                </option>
             </constraint>
             <constraint name="Length">
                 <option name="min">2</option>
                 <option name="minMessage">fruitware_contact.email.short</option>
                 <option name="max">254</option>
                 <option name="maxMessage">fruitware_contact.email.long</option>
+                <option name="groups">
+                    <value>Default</value>
+                </option>
             </constraint>
             <constraint name="Email">
                 <option name="message">fruitware_contact.email.invalid</option>
-            </constraint>
-        </property>
-
-        <property name="subject">
-            <constraint name="NotBlank">
-                <option name="message">fruitware_contact.subject.blank</option>
-            </constraint>
-            <constraint name="Length">
-                <option name="min">2</option>
-                <option name="minMessage">fruitware_contact.subject.short</option>
-                <option name="max">50</option>
-                <option name="maxMessage">fruitware_contact.subject.long</option>
+                <option name="groups">
+                    <value>Default</value>
+                </option>
             </constraint>
         </property>
 
         <property name="message">
             <constraint name="NotBlank">
                 <option name="message">fruitware_contact.message.blank</option>
+                <option name="groups">
+                    <value>Default</value>
+                </option>
             </constraint>
             <constraint name="Length">
                 <option name="min">2</option>
                 <option name="minMessage">fruitware_contact.message.short</option>
                 <option name="max">500</option>
                 <option name="maxMessage">fruitware_contact.message.long</option>
+                <option name="groups">
+                    <value>Default</value>
+                </option>
             </constraint>
         </property>
 
         <property name="createdAt">
             <constraint name="DateTime">
                 <option name="message">fruitware_contact.created_at.invalid</option>
+                <option name="groups">
+                    <value>Default</value>
+                </option>
+            </constraint>
+        </property>
+    </class>
+
+    <class name="Fruitware\ContactBundle\Model\Contact">
+
+        <property name="firstName">
+            <constraint name="NotBlank">
+                <option name="message">fruitware_contact.first_name.blank</option>
+                <option name="groups">
+                    <value>Default</value>
+                </option>
+            </constraint>
+            <constraint name="Length">
+                <option name="min">2</option>
+                <option name="minMessage">fruitware_contact.first_name.short</option>
+                <option name="max">50</option>
+                <option name="maxMessage">fruitware_contact.first_name.long</option>
+                <option name="groups">
+                    <value>Default</value>
+                </option>
+            </constraint>
+        </property>
+
+        <property name="lastName">
+            <constraint name="NotBlank">
+                <option name="message">fruitware_contact.last_name.blank</option>
+                <option name="groups">
+                    <value>Default</value>
+                </option>
+            </constraint>
+            <constraint name="Length">
+                <option name="min">2</option>
+                <option name="minMessage">fruitware_contact.last_name.short</option>
+                <option name="max">50</option>
+                <option name="maxMessage">fruitware_contact.last_name.long</option>
+                <option name="groups">
+                    <value>Default</value>
+                </option>
+            </constraint>
+        </property>
+
+        <property name="email">
+            <constraint name="NotBlank">
+                <option name="message">fruitware_contact.email.blank</option>
+                <option name="groups">
+                    <value>Default</value>
+                </option>
+            </constraint>
+            <constraint name="Length">
+                <option name="min">2</option>
+                <option name="minMessage">fruitware_contact.email.short</option>
+                <option name="max">254</option>
+                <option name="maxMessage">fruitware_contact.email.long</option>
+                <option name="groups">
+                    <value>Default</value>
+                </option>
+            </constraint>
+            <constraint name="Email">
+                <option name="message">fruitware_contact.email.invalid</option>
+                <option name="groups">
+                    <value>Default</value>
+                </option>
+            </constraint>
+        </property>
+
+        <property name="subject">
+            <constraint name="NotBlank">
+                <option name="message">fruitware_contact.subject.blank</option>
+                <option name="groups">
+                    <value>Default</value>
+                </option>
+            </constraint>
+            <constraint name="Length">
+                <option name="min">2</option>
+                <option name="minMessage">fruitware_contact.subject.short</option>
+                <option name="max">50</option>
+                <option name="maxMessage">fruitware_contact.subject.long</option>
+                <option name="groups">
+                    <value>Default</value>
+                </option>
+            </constraint>
+        </property>
+
+        <property name="message">
+            <constraint name="NotBlank">
+                <option name="message">fruitware_contact.message.blank</option>
+                <option name="groups">
+                    <value>Default</value>
+                </option>
+            </constraint>
+            <constraint name="Length">
+                <option name="min">2</option>
+                <option name="minMessage">fruitware_contact.message.short</option>
+                <option name="max">500</option>
+                <option name="maxMessage">fruitware_contact.message.long</option>
+                <option name="groups">
+                    <value>Default</value>
+                </option>
+            </constraint>
+        </property>
+
+        <property name="createdAt">
+            <constraint name="DateTime">
+                <option name="message">fruitware_contact.created_at.invalid</option>
+                <option name="groups">
+                    <value>Default</value>
+                </option>
             </constraint>
         </property>
     </class>

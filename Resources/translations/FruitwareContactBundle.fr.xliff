@@ -81,6 +81,7 @@ Un internaute a fait une demande de contact :
 Cordialement
 ]]></target>
             </trans-unit>
+
             <trans-unit id="fruitware_contact.confirm_page_title">
                 <source>fruitware_contact.confirm_page_title</source>
                 <target>Confirmation</target>

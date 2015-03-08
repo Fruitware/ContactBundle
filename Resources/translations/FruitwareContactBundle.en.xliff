@@ -81,6 +81,11 @@ A user has filled the contact form:
 Regards
 ]]></target>
             </trans-unit>
+            <trans-unit id="fruitware_contact.email_default_subject">
+                <source>fruitware_contact.email_default_subject</source>
+                <target>Contact form</target>
+            </trans-unit>
+
             <trans-unit id="fruitware_contact.confirm_page_title">
                 <source>fruitware_contact.confirm_page_title</source>
                 <target>Confirmation</target>

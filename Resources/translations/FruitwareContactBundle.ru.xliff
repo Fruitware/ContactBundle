@@ -40,7 +40,7 @@
             </trans-unit>
             <trans-unit id="fruitware_contact.email_message_txt">
                 <source>fruitware_contact.email_message_txt</source>
-                <target><![CDATA[Привет,
+                <target><![CDATA[Здравствуйте,
 
 Пользователь заполнил контактную форму:
 
@@ -56,7 +56,7 @@ Email: %email%
             </trans-unit>
             <trans-unit id="fruitware_contact.email_message_html">
                 <source>fruitware_contact.email_message_html</source>
-                <target><![CDATA[Hello,
+                <target><![CDATA[Здравствуйте,
 <br/>
 <br/>
 Пользователь заполнил контактную форму:
@@ -74,11 +74,13 @@ Email: %email%
 <strong><em>Сообщение:</em></strong>
 <br/>
 %message%
-<br/>
-<br/>
-Regards
 ]]></target>
             </trans-unit>
+            <trans-unit id="fruitware_contact.email_default_subject">
+                <source>fruitware_contact.email_default_subject</source>
+                <target>Форма контактов</target>
+            </trans-unit>
+
             <trans-unit id="fruitware_contact.confirm_page_title">
                 <source>fruitware_contact.confirm_page_title</source>
                 <target>Форма успешно отослана</target>
@@ -89,7 +91,7 @@ Regards
             </trans-unit>
             <trans-unit id="fruitware_contact.confirm_message">
                 <source>fruitware_contact.confirm_message</source>
-                <target>Ваш запрос был успешно отправлено и будет обработан как можно быстрее.</target>
+                <target>Ваш запрос был успешно отправлен! Спасибо большое за проявленный интерес.</target>
             </trans-unit>
         </body>
     </file>

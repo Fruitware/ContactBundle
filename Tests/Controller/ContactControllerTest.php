@@ -3,7 +3,7 @@
 /*
  * This file is part of the Fruitware\ContactBundle Symfony bundle.
  *
- * (c) Rémi Marseille <marseille.remi@gmail.com>
+ * (c) Coroliov Oleg <coroliov.o@fruitware.ru>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -16,7 +16,7 @@ use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 /**
  * Contact controller test class
  *
- * @author Rémi Marseille <marseille.remi@gmail.com>
+ * @author Coroliov Oleg <coroliov.o@fruitware.ru>
  */
 class ContactControllerTest extends WebTestCase
 {
@@ -35,9 +35,9 @@ class ContactControllerTest extends WebTestCase
 
         $client->submit($form, array(
             'contact_form[title]'     => 'mr',
-            'contact_form[firstName]' => 'Rémi',
-            'contact_form[lastName]'  => 'Marseille',
-            'contact_form[email]'     => 'marseille.remi@gmail.com',
+            'contact_form[firstName]' => 'Oleg',
+            'contact_form[lastName]'  => 'Coroliov',
+            'contact_form[email]'     => 'coroliov.o@fruitware.ru',
             'contact_form[subject]'   => 'Subject',
             'contact_form[message]'   => '',  // do not set value to cause a validation error
             'contact_form[captcha]'   => '1234',
@@ -57,13 +57,13 @@ class ContactControllerTest extends WebTestCase
         $this->assertEquals('mr', $submittedValues['title']);
 
         $this->assertArrayHasKey('firstName', $submittedValues);
-        $this->assertEquals('Rémi', $submittedValues['firstName']);
+        $this->assertEquals('Oleg', $submittedValues['firstName']);
 
         $this->assertArrayHasKey('lastName', $submittedValues);
-        $this->assertEquals('Marseille', $submittedValues['lastName']);
+        $this->assertEquals('Coroliov', $submittedValues['lastName']);
 
         $this->assertArrayHasKey('email', $submittedValues);
-        $this->assertEquals('marseille.remi@gmail.com', $submittedValues['email']);
+        $this->assertEquals('coroliov.o@fruitware.ru', $submittedValues['email']);
 
         $this->assertArrayHasKey('subject', $submittedValues);
         $this->assertEquals('Subject', $submittedValues['subject']);

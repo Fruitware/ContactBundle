@@ -3,7 +3,7 @@
 /*
  * This file is part of the Fruitware\ContactBundle Symfony bundle.
  *
- * (c) Rémi Marseille <marseille.remi@gmail.com>
+ * (c) Coroliov Oleg <coroliov.o@fruitware.ru>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -19,7 +19,7 @@ use Symfony\Component\Yaml\Parser;
 /**
  * Fruitware contact extension test class
  *
- * @author Rémi Marseille <marseille.remi@gmail.com>
+ * @author Coroliov Oleg <coroliov.o@fruitware.ru>
  */
 class FruitwareContactExtensionTest extends \PHPUnit_Framework_TestCase
 {
@@ -205,7 +205,7 @@ class FruitwareContactExtensionTest extends \PHPUnit_Framework_TestCase
 
         $this->assertHasDefinition('fruitware_contact.contact_manager.default');
         $this->assertHasDefinition('fruitware_contact.contact_manager');
-        $this->assertHasDefinition('fruitware_contact.form.type.contact_type');
+        $this->assertHasDefinition('fruitware_contact.form.type.base_contact_type');
         $this->assertHasDefinition('fruitware_contact.subject_provider.noop');
         $this->assertHasDefinition('fruitware_contact.listener.email_confirmation');
         $this->assertHasDefinition('fruitware_contact.mailer.twig_swift');
@@ -231,7 +231,7 @@ class FruitwareContactExtensionTest extends \PHPUnit_Framework_TestCase
         $this->createFullConfiguration();
 
         $this->assertAlias('application_fruitware_contact.mailer', 'fruitware_contact.mailer');
-        $this->assertAlias('fruitware_contact.contact_manager.doctrine', 'fruitware_contact.contact_manager');
+        $this->assertAlias('fruitware_contact.contact_manager.orm', 'fruitware_contact.contact_manager');
     }
 
     /**

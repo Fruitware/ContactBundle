@@ -15,8 +15,14 @@
             </argument>
         </service>
 
-        <service id="fruitware_contact.form.type.contact_type" class="Fruitware\ContactBundle\Form\Type\ContactType">
-            <tag name="form.type" alias="fruitware_contact" />
+        <service id="fruitware_contact.form.type.base_contact_type" class="Fruitware\ContactBundle\Form\Type\BaseContactType">
+            <tag name="form.type" alias="fruitware_contact_base" />
+            <argument>%fruitware_contact.contact.class%</argument>
+            <argument>%fruitware_contact.form.captcha_type%</argument>
+        </service>
+
+        <service id="fruitware_contact.form.type.full_contact_type" class="Fruitware\ContactBundle\Form\Type\FullContactType">
+            <tag name="form.type" alias="fruitware_contact_full" />
             <argument id="fruitware_contact.subject_provider.noop" type="service"></argument>
             <argument>%fruitware_contact.contact.class%</argument>
             <argument>%fruitware_contact.form.captcha_type%</argument>

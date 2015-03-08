@@ -3,7 +3,7 @@
 /*
  * This file is part of the Fruitware\ContactBundle Symfony bundle.
  *
- * (c) Rémi Marseille <marseille.remi@gmail.com>
+ * (c) Coroliov Oleg <coroliov.o@fruitware.ru>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -16,7 +16,7 @@ use Fruitware\ContactBundle\Model\BaseContactInterface;
 /**
  * Twig Swift mailer class
  *
- * @author Rémi Marseille <marseille.remi@gmail.com>
+ * @author Coroliov Oleg <coroliov.o@fruitware.ru>
  */
 class TwigSwiftMailer implements MailerInterface
 {
@@ -66,11 +66,13 @@ class TwigSwiftMailer implements MailerInterface
         );
 
         $template = $this->twig->loadTemplate($this->template);
+        $subject = method_exists($contact, 'getSubject') ? $contact->getSubject() : $template->renderBlock('default_subject', []);
         $textBody = $template->renderBlock('body_text', $context);
         $htmlBody = $template->renderBlock('body_html', $context);
 
+
         $message = \Swift_Message::newInstance()
-            ->setSubject($contact->getSubject())
+            ->setSubject($subject)
             ->setFrom($contact->getEmail(), $contact->getFullName())
             ->setTo($this->recipientAddress);
 

@@ -8,7 +8,7 @@
         <service id="fruitware_contact.entity_manager" factory-service="doctrine" factory-method="getManager" class="Doctrine\ORM\EntityManager" public="false">
         </service>
 
-        <service id="fruitware_contact.contact_manager.doctrine" class="Fruitware\ContactBundle\Doctrine\ContactManager" public="false">
+        <service id="fruitware_contact.contact_manager.orm" class="Fruitware\ContactBundle\Entity\ContactManager" public="false">
             <argument />
             <argument type="service" id="fruitware_contact.entity_manager" />
         </service>

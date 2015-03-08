@@ -3,7 +3,7 @@
 /*
  * This file is part of the Fruitware\ContactBundle Symfony bundle.
  *
- * (c) Rémi Marseille <marseille.remi@gmail.com>
+ * (c) Coroliov Oleg <coroliov.o@fruitware.ru>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -19,6 +19,21 @@ namespace Fruitware\ContactBundle\Model;
 class BaseContact implements BaseContactInterface
 {
     /**
+     * @var string
+     */
+    protected $firstName;
+
+    /**
+     * @var string
+     */
+    protected $email;
+
+    /**
+     * @var string
+     */
+    protected $message;
+
+    /**
      * @var \DateTime
      */
     protected $createdAt;
@@ -29,6 +44,62 @@ class BaseContact implements BaseContactInterface
     public function __construct()
     {
         $this->setCreatedAt(new \DateTime);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function setEmail($email)
+    {
+        $this->email = $email;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getEmail()
+    {
+        return $this->email;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function setFirstName($firstName)
+    {
+        $this->firstName = $firstName;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getFirstName()
+    {
+        return $this->firstName;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getFullName()
+    {
+        return $this->getFirstName();
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function setMessage($message)
+    {
+        $this->message = $message;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getMessage()
+    {
+        return $this->message;
     }
 
     /**
@@ -53,6 +124,9 @@ class BaseContact implements BaseContactInterface
     public function toArray()
     {
         return array(
+            'firstName' => $this->firstName,
+            'email'     => $this->email,
+            'message'   => $this->message,
             'createdAt' => $this->createdAt->format('c'),
         );
     }

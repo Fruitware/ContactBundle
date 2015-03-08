@@ -3,7 +3,7 @@
 /*
  * This file is part of the Fruitware\ContactBundle Symfony bundle.
  *
- * (c) Rémi Marseille <marseille.remi@gmail.com>
+ * (c) Coroliov Oleg <coroliov.o@fruitware.ru>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -11,44 +11,35 @@
 
 namespace Fruitware\ContactBundle\Form\Type;
 
-use Fruitware\ContactBundle\Provider\SubjectProviderInterface;
-
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
 /**
- * Contact type class
+ * Base Contact type class
  *
- * @author Rémi Marseille <marseille.remi@gmail.com>
+ * @author Coroliov Oleg <coroliov.o@fruitware.ru>
  */
-class ContactType extends AbstractType
+class BaseContactType extends AbstractType
 {
     /**
-     * @var SubjectProviderInterface
+     * @var string
      */
-    private $subjectProvider;
+    protected $class;
 
     /**
      * @var string
      */
-    private $class;
-
-    /**
-     * @var string
-     */
-    private $captchaType;
+    protected $captchaType;
 
     /**
      * Constructor
      *
-     * @param SubjectProviderInterface $subjectProvider A subject provider instance
      * @param string                   $class           The Contact class namespace
      * @param string                   $captchaType     The captcha type
      */
-    public function __construct(SubjectProviderInterface $subjectProvider, $class, $captchaType)
+    public function __construct($class, $captchaType)
     {
-        $this->subjectProvider = $subjectProvider;
         $this->class           = $class;
         $this->captchaType     = $captchaType;
     }
@@ -60,25 +51,14 @@ class ContactType extends AbstractType
     {
         $builder
             ->add('firstName', 'text',  array('label' => 'fruitware_contact.form.first_name'))
-            ->add('lastName',  'text',  array('label' => 'fruitware_contact.form.last_name'))
             ->add('email',     'email', array('label' => 'fruitware_contact.form.email'));
-
-        if ($subjects = $this->subjectProvider->getSubjects()) {
-            $builder
-                ->add('subject', 'choice', array(
-                    'choices' => $subjects,
-                    'label'   => 'fruitware_contact.form.subject',
-                ));
-        } else {
-            $builder->add('subject', 'text', array('label' => 'fruitware_contact.form.subject'));
-        }
 
         $builder->add('message', 'textarea', array('label' => 'fruitware_contact.form.message'));
 
         if ($this->captchaType) {
             $builder->add('captcha', $this->captchaType, array(
                 'label'  => 'fruitware_contact.form.captcha',
-                'mapped' => false,
+                'mapped' => false
             ));
         }
 
@@ -102,6 +82,6 @@ class ContactType extends AbstractType
      */
     public function getName()
     {
-        return 'fruitware_contact';
+        return 'fruitware_contact_base';
     }
 }
