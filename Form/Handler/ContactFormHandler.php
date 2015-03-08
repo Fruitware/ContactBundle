@@ -1,13 +1,13 @@
 <?php
 
-namespace Mremi\ContactBundle\Form\Handler;
+namespace Fruitware\ContactBundle\Form\Handler;
 
-use Mremi\ContactBundle\ContactEvents;
-use Mremi\ContactBundle\Event\ContactEvent;
-use Mremi\ContactBundle\Event\FilterContactResponseEvent;
-use Mremi\ContactBundle\Event\FormEvent;
-use Mremi\ContactBundle\Model\BaseContactInterface;
-use Mremi\ContactBundle\Model\ContactManagerInterface;
+use Fruitware\ContactBundle\ContactEvents;
+use Fruitware\ContactBundle\Event\ContactEvent;
+use Fruitware\ContactBundle\Event\FilterContactResponseEvent;
+use Fruitware\ContactBundle\Event\FormEvent;
+use Fruitware\ContactBundle\Model\BaseContactInterface;
+use Fruitware\ContactBundle\Model\ContactManagerInterface;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
@@ -64,7 +64,7 @@ class ContactFormHandler
                 $this->eventDispatcher->dispatch(ContactEvents::FORM_SUCCESS, $event);
 
                 if (null === $response = $event->getResponse()) {
-                    $response = new RedirectResponse($this->router->generate('mremi_contact_confirmation'));
+                    $response = new RedirectResponse($this->router->generate('fruitware_contact_confirmation'));
                 }
 
                 $this->contactManager->save($contact);

@@ -1,7 +1,7 @@
 <?php
 
 /*
- * This file is part of the Mremi\ContactBundle Symfony bundle.
+ * This file is part of the Fruitware\ContactBundle Symfony bundle.
  *
  * (c) Rémi Marseille <marseille.remi@gmail.com>
  *
@@ -9,11 +9,11 @@
  * file that was distributed with this source code.
  */
 
-namespace Mremi\ContactBundle\EventListener;
+namespace Fruitware\ContactBundle\EventListener;
 
-use Mremi\ContactBundle\ContactEvents;
-use Mremi\ContactBundle\Event\FormEvent;
-use Mremi\ContactBundle\Mailer\MailerInterface;
+use Fruitware\ContactBundle\ContactEvents;
+use Fruitware\ContactBundle\Event\FormEvent;
+use Fruitware\ContactBundle\Mailer\MailerInterface;
 
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
@@ -68,7 +68,7 @@ class EmailConfirmationListener implements EventSubscriberInterface
     {
         $this->mailer->sendMessage($event->getForm()->getData());
 
-        $url = $this->router->generate('mremi_contact_confirmation');
+        $url = $this->router->generate('fruitware_contact_confirmation');
 
         $event->setResponse(new RedirectResponse($url));
     }

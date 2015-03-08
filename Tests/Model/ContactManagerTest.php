@@ -1,7 +1,7 @@
 <?php
 
 /*
- * This file is part of the Mremi\ContactBundle Symfony bundle.
+ * This file is part of the Fruitware\ContactBundle Symfony bundle.
  *
  * (c) Rémi Marseille <marseille.remi@gmail.com>
  *
@@ -9,9 +9,9 @@
  * file that was distributed with this source code.
  */
 
-namespace Mremi\ContactBundle\Tests\Model;
+namespace Fruitware\ContactBundle\Tests\Model;
 
-use Mremi\ContactBundle\Model\ContactManager;
+use Fruitware\ContactBundle\Model\ContactManager;
 
 /**
  * Tests ContactManager class
@@ -25,8 +25,8 @@ class ContactManagerTest extends \PHPUnit_Framework_TestCase
      */
     public function testCreate()
     {
-        $contactManager = new ContactManager('Mremi\ContactBundle\Model\Contact');
+        $contactManager = new ContactManager('Fruitware\ContactBundle\Model\Contact');
 
-        $this->assertInstanceOf('Mremi\ContactBundle\Model\Contact', $contactManager->create());
+        $this->assertInstanceOf('Fruitware\ContactBundle\Model\Contact', $contactManager->create());
     }
 }

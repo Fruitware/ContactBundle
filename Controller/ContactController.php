@@ -1,7 +1,7 @@
 <?php
 
 /*
- * This file is part of the Mremi\ContactBundle Symfony bundle.
+ * This file is part of the Fruitware\ContactBundle Symfony bundle.
  *
  * (c) Rémi Marseille <marseille.remi@gmail.com>
  *
@@ -9,11 +9,11 @@
  * file that was distributed with this source code.
  */
 
-namespace Mremi\ContactBundle\Controller;
+namespace Fruitware\ContactBundle\Controller;
 
-use Mremi\ContactBundle\Form\Handler\ContactFormHandler;
-use Mremi\ContactBundle\Form\Handler\FormHandler;
-use Mremi\ContactBundle\Model\ContactManagerInterface;
+use Fruitware\ContactBundle\Form\Handler\ContactFormHandler;
+use Fruitware\ContactBundle\Form\Handler\FormHandler;
+use Fruitware\ContactBundle\Model\ContactManagerInterface;
 
 use Symfony\Bundle\FrameworkBundle\Templating\EngineInterface;
 use Symfony\Component\Form\Form;
@@ -96,12 +96,12 @@ class ContactController
 
         $response = $this->formHandler->process($contact);
         if ($response instanceof Response) {
-            $this->session->set('mremi_contact_data', $contact);
+            $this->session->set('fruitware_contact_data', $contact);
 
             return $response;
         }
 
-        return $this->templating->renderResponse('MremiContactBundle:Contact:index.html.twig', array(
+        return $this->templating->renderResponse('FruitwareContactBundle:Contact:index.html.twig', array(
             'form' => $this->form->createView(),
         ));
     }
@@ -115,14 +115,14 @@ class ContactController
      */
     public function confirmAction()
     {
-        $contact = $this->session->get('mremi_contact_data');
-        $this->session->remove('mremi_contact_data');
+        $contact = $this->session->get('fruitware_contact_data');
+        $this->session->remove('fruitware_contact_data');
 
         if (!$contact) {
-            return new RedirectResponse($this->router->generate('mremi_contact_form'));
+            return new RedirectResponse($this->router->generate('fruitware_contact_form'));
         }
 
-        return $this->templating->renderResponse('MremiContactBundle:Contact:confirm.html.twig', array(
+        return $this->templating->renderResponse('FruitwareContactBundle:Contact:confirm.html.twig', array(
             'contact' => $contact,
         ));
     }

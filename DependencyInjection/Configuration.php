@@ -1,7 +1,7 @@
 <?php
 
 /*
- * This file is part of the Mremi\ContactBundle Symfony bundle.
+ * This file is part of the Fruitware\ContactBundle Symfony bundle.
  *
  * (c) Rémi Marseille <marseille.remi@gmail.com>
  *
@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Mremi\ContactBundle\DependencyInjection;
+namespace Fruitware\ContactBundle\DependencyInjection;
 
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\Config\Definition\ConfigurationInterface;
@@ -27,25 +27,25 @@ class Configuration implements ConfigurationInterface
     public function getConfigTreeBuilder()
     {
         $treeBuilder = new TreeBuilder();
-        $rootNode = $treeBuilder->root('mremi_contact');
+        $rootNode = $treeBuilder->root('fruitware_contact');
 
         $rootNode
             ->children()
                 ->booleanNode('store_data')->defaultFalse()->end()
                 ->scalarNode('contact_class')
-                    ->defaultValue('Mremi\ContactBundle\Model\Contact')->cannotBeEmpty()
+                    ->defaultValue('Fruitware\ContactBundle\Model\Contact')->cannotBeEmpty()
                 ->end()
                 ->arrayNode('form')
                     ->addDefaultsIfNotSet()
                     ->children()
-                        ->scalarNode('type')->defaultValue('mremi_contact')->cannotBeEmpty()->end()
+                        ->scalarNode('type')->defaultValue('fruitware_contact')->cannotBeEmpty()->end()
                         ->scalarNode('name')->defaultValue('contact_form')->cannotBeEmpty()->end()
-                        ->scalarNode('handler')->defaultValue('mremi_contact.form.handler.default')->cannotBeEmpty()->end()
+                        ->scalarNode('handler')->defaultValue('fruitware_contact.form.handler.default')->cannotBeEmpty()->end()
                         ->arrayNode('validation_groups')
                             ->prototype('scalar')->end()
                             ->defaultValue(array('Default'))
                         ->end()
-                        ->scalarNode('subject_provider')->defaultValue('mremi_contact.subject_provider.noop')->cannotBeEmpty()->end()
+                        ->scalarNode('subject_provider')->defaultValue('fruitware_contact.subject_provider.noop')->cannotBeEmpty()->end()
                         ->scalarNode('captcha_type')->defaultNull()->cannotBeEmpty()->end()
                     ->end()
                 ->end()
@@ -53,14 +53,14 @@ class Configuration implements ConfigurationInterface
                     ->isRequired()
                     ->addDefaultsIfNotSet()
                     ->children()
-                        ->scalarNode('mailer')->defaultValue('mremi_contact.mailer.twig_swift')->cannotBeEmpty()->end()
+                        ->scalarNode('mailer')->defaultValue('fruitware_contact.mailer.twig_swift')->cannotBeEmpty()->end()
                         ->scalarNode('recipient_address')->isRequired()->cannotBeEmpty()->end()
-                        ->scalarNode('template')->defaultValue('MremiContactBundle:Contact:email.txt.twig')->cannotBeEmpty()->end()
+                        ->scalarNode('template')->defaultValue('FruitwareContactBundle:Contact:email.txt.twig')->cannotBeEmpty()->end()
                     ->end()
                 ->end()
             ->end()
             ->validate()
-                ->ifTrue(function($v) { return true === $v['store_data'] && 'Mremi\ContactBundle\Model\Contact' === $v['contact_class']; })
+                ->ifTrue(function($v) { return true === $v['store_data'] && 'Fruitware\ContactBundle\Model\Contact' === $v['contact_class']; })
                 ->thenInvalid('You must configure the "contact_class" node with your extended entity.')
             ->end();
 

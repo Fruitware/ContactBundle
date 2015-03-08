@@ -1,7 +1,7 @@
 <?php
 
 /*
- * This file is part of the Mremi\ContactBundle Symfony bundle.
+ * This file is part of the Fruitware\ContactBundle Symfony bundle.
  *
  * (c) Rémi Marseille <marseille.remi@gmail.com>
  *
@@ -9,12 +9,12 @@
  * file that was distributed with this source code.
  */
 
-namespace Mremi\ContactBundle\Doctrine;
+namespace Fruitware\ContactBundle\Doctrine;
 
 use Doctrine\Common\Persistence\ObjectManager;
 
-use Mremi\ContactBundle\Model\BaseContactInterface;
-use Mremi\ContactBundle\Model\ContactManager as BaseContactManager;
+use Fruitware\ContactBundle\Model\BaseContactInterface;
+use Fruitware\ContactBundle\Model\ContactManager as BaseContactManager;
 
 /**
  * Contact manager class

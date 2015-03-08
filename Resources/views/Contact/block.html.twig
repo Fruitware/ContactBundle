@@ -1,9 +1,9 @@
-{% trans_default_domain 'MremiContactBundle' %}
+{% trans_default_domain 'FruitwareContactBundle' %}
 
 {% block content %}
-    {{ form_start(form, {'action': path('mremi_contact_form')}) }}
+    {{ form_start(form, {'action': path('fruitware_contact_form')}) }}
         <fieldset>
-            <legend>{{ 'mremi_contact.form_title'|trans }}</legend>
+            <legend>{{ 'fruitware_contact.form_title'|trans }}</legend>
 
             {{ form_widget(form) }}
         </fieldset>

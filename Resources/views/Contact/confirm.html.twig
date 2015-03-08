@@ -1,16 +1,16 @@
 {% extends "::base.html.twig" %}
 
-{% trans_default_domain 'MremiContactBundle' %}
+{% trans_default_domain 'FruitwareContactBundle' %}
 
-{% block title %}{{ 'mremi_contact.confirm_page_title'|trans }}{% endblock %}
+{% block title %}{{ 'fruitware_contact.confirm_page_title'|trans }}{% endblock %}
 
 {% block content %}
     <section>
-        <h3>{{ 'mremi_contact.confirm_title'|trans({
+        <h3>{{ 'fruitware_contact.confirm_title'|trans({
             '%title%':    contact.titleValue|trans,
             '%fullName%': contact.fullName
         }) }}</h3>
     </section>
 
-    <p>{{ 'mremi_contact.confirm_message'|trans }}</p>
+    <p>{{ 'fruitware_contact.confirm_message'|trans }}</p>
 {% endblock %}

@@ -1,7 +1,7 @@
 <?php
 
 /*
- * This file is part of the Mremi\ContactBundle Symfony bundle.
+ * This file is part of the Fruitware\ContactBundle Symfony bundle.
  *
  * (c) Rémi Marseille <marseille.remi@gmail.com>
  *
@@ -9,10 +9,10 @@
  * file that was distributed with this source code.
  */
 
-namespace Mremi\ContactBundle\Form\Type;
+namespace Fruitware\ContactBundle\Form\Type;
 
-use Mremi\ContactBundle\Model\Contact;
-use Mremi\ContactBundle\Provider\SubjectProviderInterface;
+use Fruitware\ContactBundle\Model\Contact;
+use Fruitware\ContactBundle\Provider\SubjectProviderInterface;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -63,32 +63,32 @@ class ContactType extends AbstractType
             ->add('title', 'choice', array(
                 'choices'  => Contact::getTitles(),
                 'expanded' => true,
-                'label'    => 'mremi_contact.form.title',
+                'label'    => 'fruitware_contact.form.title',
             ))
-            ->add('firstName', 'text',  array('label' => 'mremi_contact.form.first_name'))
-            ->add('lastName',  'text',  array('label' => 'mremi_contact.form.last_name'))
-            ->add('email',     'email', array('label' => 'mremi_contact.form.email'));
+            ->add('firstName', 'text',  array('label' => 'fruitware_contact.form.first_name'))
+            ->add('lastName',  'text',  array('label' => 'fruitware_contact.form.last_name'))
+            ->add('email',     'email', array('label' => 'fruitware_contact.form.email'));
 
         if ($subjects = $this->subjectProvider->getSubjects()) {
             $builder
                 ->add('subject', 'choice', array(
                     'choices' => $subjects,
-                    'label'   => 'mremi_contact.form.subject',
+                    'label'   => 'fruitware_contact.form.subject',
                 ));
         } else {
-            $builder->add('subject', 'text', array('label' => 'mremi_contact.form.subject'));
+            $builder->add('subject', 'text', array('label' => 'fruitware_contact.form.subject'));
         }
 
-        $builder->add('message', 'textarea', array('label' => 'mremi_contact.form.message'));
+        $builder->add('message', 'textarea', array('label' => 'fruitware_contact.form.message'));
 
         if ($this->captchaType) {
             $builder->add('captcha', $this->captchaType, array(
-                'label'  => 'mremi_contact.form.captcha',
+                'label'  => 'fruitware_contact.form.captcha',
                 'mapped' => false,
             ));
         }
 
-        $builder->add('save', 'submit', array('label' => 'mremi_contact.form_submit'));
+        $builder->add('save', 'submit', array('label' => 'fruitware_contact.form_submit'));
     }
 
     /**
@@ -99,7 +99,7 @@ class ContactType extends AbstractType
         $resolver->setDefaults(array(
             'data_class'         => $this->class,
             'intention'          => 'contact',
-            'translation_domain' => 'MremiContactBundle',
+            'translation_domain' => 'FruitwareContactBundle',
         ));
     }
 
@@ -108,6 +108,6 @@ class ContactType extends AbstractType
      */
     public function getName()
     {
-        return 'mremi_contact';
+        return 'fruitware_contact';
     }
 }

@@ -1,7 +1,7 @@
 <?php
 
 /*
- * This file is part of the Mremi\ContactBundle Symfony bundle.
+ * This file is part of the Fruitware\ContactBundle Symfony bundle.
  *
  * (c) Rémi Marseille <marseille.remi@gmail.com>
  *
@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Mremi\ContactBundle\DependencyInjection;
+namespace Fruitware\ContactBundle\DependencyInjection;
 
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\Config\FileLocator;
@@ -22,7 +22,7 @@ use Symfony\Component\DependencyInjection\Loader\XmlFileLoader;
  *
  * To learn more see {@link http://symfony.com/doc/current/cookbook/bundles/extension.html}
  */
-class MremiContactExtension extends Extension
+class FruitwareContactExtension extends Extension
 {
     /**
      * {@inheritdoc}
@@ -62,9 +62,9 @@ class MremiContactExtension extends Extension
             $suffix = 'default';
         }
 
-        $container->setAlias('mremi_contact.contact_manager', sprintf('mremi_contact.contact_manager.%s', $suffix));
+        $container->setAlias('fruitware_contact.contact_manager', sprintf('fruitware_contact.contact_manager.%s', $suffix));
 
-        $definition = $container->findDefinition('mremi_contact.contact_manager');
+        $definition = $container->findDefinition('fruitware_contact.contact_manager');
         $definition->replaceArgument(0, $config['contact_class']);
     }
 
@@ -76,14 +76,14 @@ class MremiContactExtension extends Extension
      */
     private function configureForm(ContainerBuilder $container, array $config)
     {
-        $container->setParameter('mremi_contact.form.name', $config['form']['name']);
-        $container->setParameter('mremi_contact.form.type', $config['form']['type']);
-        $container->setParameter('mremi_contact.form.validation_groups', $config['form']['validation_groups']);
+        $container->setParameter('fruitware_contact.form.name', $config['form']['name']);
+        $container->setParameter('fruitware_contact.form.type', $config['form']['type']);
+        $container->setParameter('fruitware_contact.form.validation_groups', $config['form']['validation_groups']);
 
-        $container->setParameter('mremi_contact.contact.class',     $config['contact_class']);
-        $container->setParameter('mremi_contact.form.captcha_type', $config['form']['captcha_type']);
+        $container->setParameter('fruitware_contact.contact.class',     $config['contact_class']);
+        $container->setParameter('fruitware_contact.form.captcha_type', $config['form']['captcha_type']);
 
-        $container->setAlias('mremi_contact.form.handler', $config['form']['handler']);
+        $container->setAlias('fruitware_contact.form.handler', $config['form']['handler']);
     }
 
     /**
@@ -95,11 +95,11 @@ class MremiContactExtension extends Extension
      */
     private function configureMailer(ContainerBuilder $container, array $config, XmlFileLoader $loader)
     {
-        $container->setAlias('mremi_contact.mailer', $config['email']['mailer']);
+        $container->setAlias('fruitware_contact.mailer', $config['email']['mailer']);
 
         $loader->load('mailer.xml');
 
-        $container->setParameter('mremi_contact.email.recipient_address', $config['email']['recipient_address']);
-        $container->setParameter('mremi_contact.email.template',          $config['email']['template']);
+        $container->setParameter('fruitware_contact.email.recipient_address', $config['email']['recipient_address']);
+        $container->setParameter('fruitware_contact.email.template',          $config['email']['template']);
     }
 }

@@ -1,7 +1,7 @@
 <?php
 
 /*
- * This file is part of the Mremi\ContactBundle Symfony bundle.
+ * This file is part of the Fruitware\ContactBundle Symfony bundle.
  *
  * (c) Rémi Marseille <marseille.remi@gmail.com>
  *
@@ -9,15 +9,15 @@
  * file that was distributed with this source code.
  */
 
-namespace Mremi\ContactBundle;
+namespace Fruitware\ContactBundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
 /**
- * MremiContactBundle class
+ * FruitwareContactBundle class
  *
  * @author Rémi Marseille <marseille.remi@gmail.com>
  */
-class MremiContactBundle extends Bundle
+class FruitwareContactBundle extends Bundle
 {
 }

@@ -1,13 +1,13 @@
 <?php
 
-namespace Mremi\ContactBundle\Block;
+namespace Fruitware\ContactBundle\Block;
 
-use Mremi\ContactBundle\ContactEvents;
-use Mremi\ContactBundle\Event\ContactEvent;
-use Mremi\ContactBundle\Event\FilterContactResponseEvent;
-use Mremi\ContactBundle\Event\FormEvent;
-use Mremi\ContactBundle\Form\Factory\FormFactory;
-use Mremi\ContactBundle\Model\ContactManagerInterface;
+use Fruitware\ContactBundle\ContactEvents;
+use Fruitware\ContactBundle\Event\ContactEvent;
+use Fruitware\ContactBundle\Event\FilterContactResponseEvent;
+use Fruitware\ContactBundle\Event\FormEvent;
+use Fruitware\ContactBundle\Form\Factory\FormFactory;
+use Fruitware\ContactBundle\Model\ContactManagerInterface;
 
 use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Validator\ErrorElement;
@@ -123,7 +123,7 @@ class ContactBlockService extends BaseBlockService
             }
 
             $this->contactManager->save($contact, true);
-            $this->session->set('mremi_contact_data', $contact);
+            $this->session->set('fruitware_contact_data', $contact);
 
             $this->eventDispatcher->dispatch(ContactEvents::FORM_COMPLETED, new FilterContactResponseEvent($contact, $request, $response));
 
@@ -140,7 +140,7 @@ class ContactBlockService extends BaseBlockService
     public function setDefaultSettings(OptionsResolverInterface $resolver)
     {
         $defaults = array(
-            'template'  => 'MremiContactBundle:Contact:block.html.twig',
+            'template'  => 'FruitwareContactBundle:Contact:block.html.twig',
         );
 
         $resolver->setDefaults($defaults);

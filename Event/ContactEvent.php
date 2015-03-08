@@ -1,7 +1,7 @@
 <?php
 
 /*
- * This file is part of the Mremi\ContactBundle Symfony bundle.
+ * This file is part of the Fruitware\ContactBundle Symfony bundle.
  *
  * (c) Rémi Marseille <marseille.remi@gmail.com>
  *
@@ -9,9 +9,9 @@
  * file that was distributed with this source code.
  */
 
-namespace Mremi\ContactBundle\Event;
+namespace Fruitware\ContactBundle\Event;
 
-use Mremi\ContactBundle\Model\BaseContactInterface;
+use Fruitware\ContactBundle\Model\BaseContactInterface;
 
 use Symfony\Component\EventDispatcher\Event;
 use Symfony\Component\HttpFoundation\Request;

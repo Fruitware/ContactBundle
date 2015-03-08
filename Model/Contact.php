@@ -1,7 +1,7 @@
 <?php
 
 /*
- * This file is part of the Mremi\ContactBundle Symfony bundle.
+ * This file is part of the Fruitware\ContactBundle Symfony bundle.
  *
  * (c) Rémi Marseille <marseille.remi@gmail.com>
  *
@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Mremi\ContactBundle\Model;
+namespace Fruitware\ContactBundle\Model;
 
 /**
  * Contact class
@@ -174,8 +174,8 @@ class Contact extends BaseContact implements ContactInterface
     public static function getTitles()
     {
         return array(
-            self::TITLE_MR  => 'mremi_contact.form.title_mr',
-            self::TITLE_MRS => 'mremi_contact.form.title_mrs',
+            self::TITLE_MR  => 'fruitware_contact.form.title_mr',
+            self::TITLE_MRS => 'fruitware_contact.form.title_mrs',
         );
     }
 

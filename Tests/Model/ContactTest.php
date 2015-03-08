@@ -1,7 +1,7 @@
 <?php
 
 /*
- * This file is part of the Mremi\ContactBundle Symfony bundle.
+ * This file is part of the Fruitware\ContactBundle Symfony bundle.
  *
  * (c) Rémi Marseille <marseille.remi@gmail.com>
  *
@@ -9,9 +9,9 @@
  * file that was distributed with this source code.
  */
 
-namespace Mremi\ContactBundle\Tests\Model;
+namespace Fruitware\ContactBundle\Tests\Model;
 
-use Mremi\ContactBundle\Model\Contact;
+use Fruitware\ContactBundle\Model\Contact;
 
 /**
  * Tests Contact class
@@ -62,11 +62,11 @@ class ContactTest extends \PHPUnit_Framework_TestCase
         $contact = new Contact;
         $contact->setTitle(Contact::TITLE_MR);
 
-        $this->assertEquals('mremi_contact.form.title_mr', $contact->getTitleValue());
+        $this->assertEquals('fruitware_contact.form.title_mr', $contact->getTitleValue());
 
         $contact->setTitle(Contact::TITLE_MRS);
 
-        $this->assertEquals('mremi_contact.form.title_mrs', $contact->getTitleValue());
+        $this->assertEquals('fruitware_contact.form.title_mrs', $contact->getTitleValue());
     }
 
     /**

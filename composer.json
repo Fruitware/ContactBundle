@@ -7,21 +7,17 @@
     "license": "MIT",
     "authors": [
         {
-            "name": "Rémi Marseille",
-            "email": "marseille.remi@gmail.com"
+            "name": "Coroliov Oleg",
+            "email": "coroliov.o@fruitware.ru"
         }
     ],
     "require": {
         "php": ">=5.3.3",
-        "mremi/bootstrap-bundle": "~3.0",
         "symfony/framework-bundle": "~2.3",
         "symfony/form": "~2.3"
     },
-    "suggest": {
-        "mremi/templating-extra-bundle": "In order to profile pages, get some statistics and enhance front office development"
-    },
     "autoload": {
-        "psr-0": { "Mremi\\ContactBundle": "" }
+        "psr-0": { "Fruitware\\ContactBundle": "" }
     },
-    "target-dir": "Mremi/ContactBundle"
+    "target-dir": "Fruitware/ContactBundle"
 }
