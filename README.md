@@ -3,7 +3,7 @@ FruitwareContactBundle
 
 [![SensioLabsInsight](https://insight.sensiolabs.com/projects/7c3f02d7-cfc4-4e6a-9892-28ba24a8ecd2/big.png)](https://insight.sensiolabs.com/projects/7c3f02d7-cfc4-4e6a-9892-28ba24a8ecd2)
 
-[![Build Status](https://api.travis-ci.org/fruitware/ContactBundle.png?branch=master)](https://travis-ci.org/fruitware/ContactBundle)
+[![Build Status](https://api.travis-ci.org/Fruitware/ContactBundle.png?branch=master)](https://travis-ci.org/Fruitware/ContactBundle)
 [![Total Downloads](https://poser.pugx.org/fruitware/contact-bundle/downloads.png)](https://packagist.org/packages/fruitware/contact-bundle)
 [![Latest Stable Version](https://poser.pugx.org/fruitware/contact-bundle/v/stable.png)](https://packagist.org/packages/fruitware/contact-bundle)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/fruitware/ContactBundle/badges/quality-score.png?s=467b3da9c033c9658e759460e306a7a431fd30ad)](https://scrutinizer-ci.com/g/fruitware/ContactBundle/)
