@@ -11,6 +11,7 @@
 
 namespace Fruitware\ContactBundle\DependencyInjection;
 
+use Fruitware\ContactBundle\Model\BaseContactInterface;
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\Config\Definition\ConfigurationInterface;
 
@@ -33,12 +34,12 @@ class Configuration implements ConfigurationInterface
             ->children()
                 ->booleanNode('store_data')->defaultFalse()->end()
                 ->scalarNode('contact_class')
-                    ->defaultValue('Fruitware\ContactBundle\Model\Contact')->cannotBeEmpty()
+                    ->defaultValue('Fruitware\ContactBundle\Model\BaseContact')->cannotBeEmpty()
                 ->end()
                 ->arrayNode('form')
                     ->addDefaultsIfNotSet()
                     ->children()
-                        ->scalarNode('type')->defaultValue('fruitware_contact')->cannotBeEmpty()->end()
+                        ->scalarNode('type')->defaultValue('base_fruitware_contact')->cannotBeEmpty()->end()
                         ->scalarNode('name')->defaultValue('contact_form')->cannotBeEmpty()->end()
                         ->scalarNode('handler')->defaultValue('fruitware_contact.form.handler.default')->cannotBeEmpty()->end()
                         ->arrayNode('validation_groups')
@@ -60,9 +61,11 @@ class Configuration implements ConfigurationInterface
                 ->end()
             ->end()
             ->validate()
-                ->ifTrue(function($v) { return true === $v['store_data'] && 'Fruitware\ContactBundle\Model\Contact' === $v['contact_class']; })
+                ->ifTrue(function($v) { return true === $v['store_data'] && ('Fruitware\ContactBundle\Model\BaseContact' === $v['contact_class'] || 'Fruitware\ContactBundle\Model\Contact' === $v['contact_class']); })
                 ->thenInvalid('You must configure the "contact_class" node with your extended entity.')
-            ->end();
+            ->end()
+        ;
+
 
         return $treeBuilder;
     }
