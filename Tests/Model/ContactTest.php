@@ -159,7 +159,7 @@ class ContactTest extends \PHPUnit_Framework_TestCase
         $contact->setMessage('message');
         $contact->setCreatedAt(new \DateTime('2013-07-11T10:07:00+02:00'));
 
-        $expected = 'a:7:{s:5:"title";s:2:"mr";s:9:"firstName";s:5:"Rémi";s:8:"lastName";s:9:"Marseille";s:5:"email";s:24:"marseille.remi@gmail.com";s:7:"subject";s:7:"subject";s:7:"message";s:7:"message";s:9:"createdAt";s:25:"2013-07-11T10:07:00+02:00";}';
+        $expected = 'a:7:{s:9:"createdAt";s:25:"2013-07-11T10:07:00+02:00";s:5:"title";s:2:"mr";s:9:"firstName";s:5:"Rémi";s:8:"lastName";s:9:"Marseille";s:5:"email";s:24:"marseille.remi@gmail.com";s:7:"subject";s:7:"subject";s:7:"message";s:7:"message";}';
 
         $this->assertEquals($expected, $contact->serialize());
     }

@@ -26,12 +26,12 @@ class ContactEvent extends Event
     /**
      * @var Request
      */
-    private $request;
+    protected $request;
 
     /**
      * @var BaseContactInterface
      */
-    private $contact;
+    protected $contact;
 
     /**
      * Constructor

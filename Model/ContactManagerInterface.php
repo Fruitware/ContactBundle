@@ -31,5 +31,5 @@ interface ContactManagerInterface
      * @param BaseContactInterface $contact A contact instance
      * @param boolean              $flush   TRUE whether you want to synchronize with the database
      */
-    public function save(BaseContactInterface $contact, $flush = false);
+    public function save(BaseContactInterface $contact, $flush = true);
 }

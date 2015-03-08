@@ -36,7 +36,7 @@ class MremiContactExtension extends Extension
         $loader->load('controller.xml');
         $loader->load('form.xml');
         $loader->load('listeners.xml');
-        $loader->load('block.xml');
+//        $loader->load('block.xml');
 
         $this->configureContactManager($container, $config, $loader);
         $this->configureForm($container, $config);
@@ -82,6 +82,8 @@ class MremiContactExtension extends Extension
 
         $container->setParameter('mremi_contact.contact.class',     $config['contact_class']);
         $container->setParameter('mremi_contact.form.captcha_type', $config['form']['captcha_type']);
+
+        $container->setAlias('mremi_contact.form.handler', $config['form']['handler']);
     }
 
     /**

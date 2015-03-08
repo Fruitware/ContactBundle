@@ -205,8 +205,7 @@ class MremiContactExtensionTest extends \PHPUnit_Framework_TestCase
 
         $this->assertHasDefinition('mremi_contact.contact_manager.default');
         $this->assertHasDefinition('mremi_contact.contact_manager');
-        $this->assertHasDefinition('mremi_contact.form_factory');
-        $this->assertHasDefinition('mremi_contact.contact_form_type');
+        $this->assertHasDefinition('mremi_contact.form.type.contact_type');
         $this->assertHasDefinition('mremi_contact.subject_provider.noop');
         $this->assertHasDefinition('mremi_contact.listener.email_confirmation');
         $this->assertHasDefinition('mremi_contact.mailer.twig_swift');

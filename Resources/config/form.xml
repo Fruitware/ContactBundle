@@ -5,18 +5,29 @@
     xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
 
     <services>
-        <service id="mremi_contact.form_factory" class="Mremi\ContactBundle\Form\Factory\FormFactory">
-            <argument type="service" id="form.factory" />
+        <service id="mremi_contact.form" factory-method="createNamed" factory-service="form.factory" class="Symfony\Component\Form\Form">
             <argument>%mremi_contact.form.name%</argument>
             <argument>%mremi_contact.form.type%</argument>
-            <argument>%mremi_contact.form.validation_groups%</argument>
+            <argument>null</argument>
+            <argument type="collection">
+                <argument key="validation_groups">%mremi_contact.form.validation_groups%</argument>
+                <argument key="translation_domain">MremiContactBundle</argument>
+            </argument>
         </service>
 
-        <service id="mremi_contact.contact_form_type" class="Mremi\ContactBundle\Form\Type\ContactType">
+        <service id="mremi_contact.form.type.contact_type" class="Mremi\ContactBundle\Form\Type\ContactType">
             <tag name="form.type" alias="mremi_contact" />
             <argument id="mremi_contact.subject_provider.noop" type="service"></argument>
             <argument>%mremi_contact.contact.class%</argument>
             <argument>%mremi_contact.form.captcha_type%</argument>
+        </service>
+
+        <service id="mremi_contact.form.handler.default" class="Mremi\ContactBundle\Form\Handler\ContactFormHandler" scope="request" public="false">
+            <argument type="service" id="mremi_contact.form" />
+            <argument type="service" id="mremi_contact.contact_manager" />
+            <argument type="service" id="request" />
+            <argument type="service" id="router" />
+            <argument type="service" id="event_dispatcher" />
         </service>
 
         <service id="mremi_contact.subject_provider.noop" class="Mremi\ContactBundle\Provider\NoopSubjectProvider">

@@ -1,14 +1,6 @@
 {% trans_default_domain 'MremiContactBundle' %}
 
-{% form_theme form 'MremiContactBundle:Contact:bootstrap_form_theme.html.twig' %}
-
-
-{% block stylesheets %}
-    <link rel="stylesheet" href="{{ asset('bundles/mremibootstrap/css/bootstrap.min.css') }}" type="text/css" media="screen"  />
-    <link rel="stylesheet" href="{{ asset('bundles/mremibootstrap/css/bootstrap-theme.min.css') }}" type="text/css" media="all" />
-{% endblock %}
-
-{% block block %}
+{% block content %}
     {{ form_start(form, {'action': path('mremi_contact_form')}) }}
         <fieldset>
             <legend>{{ 'mremi_contact.form_title'|trans }}</legend>

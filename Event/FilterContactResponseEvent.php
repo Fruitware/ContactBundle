@@ -26,7 +26,7 @@ class FilterContactResponseEvent extends ContactEvent
     /**
      * @var Response
      */
-    private $response;
+    protected $response;
 
     /**
      * Constructor

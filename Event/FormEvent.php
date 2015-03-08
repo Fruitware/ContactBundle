@@ -26,17 +26,17 @@ class FormEvent extends Event
     /**
      * @var FormInterface
      */
-    private $form;
+    protected $form;
 
     /**
      * @var Request
      */
-    private $request;
+    protected $request;
 
     /**
      * @var Response
      */
-    private $response;
+    protected $response;
 
     /**
      * Constructor

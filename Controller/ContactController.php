@@ -11,17 +11,16 @@
 
 namespace Mremi\ContactBundle\Controller;
 
-use Mremi\ContactBundle\ContactEvents;
-use Mremi\ContactBundle\Event\ContactEvent;
-use Mremi\ContactBundle\Event\FilterContactResponseEvent;
-use Mremi\ContactBundle\Event\FormEvent;
-use Mremi\ContactBundle\Form\Factory\FormFactory;
+use Mremi\ContactBundle\Form\Handler\ContactFormHandler;
+use Mremi\ContactBundle\Form\Handler\FormHandler;
 use Mremi\ContactBundle\Model\ContactManagerInterface;
 
 use Symfony\Bundle\FrameworkBundle\Templating\EngineInterface;
-use Symfony\Component\EventDispatcher\EventDispatcherInterface;
+use Symfony\Component\Form\Form;
+use Symfony\Component\Form\FormInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Routing\RouterInterface;
 use Symfony\Component\Security\Core\Exception\AccessDeniedException;
@@ -34,53 +33,54 @@ use Symfony\Component\Security\Core\Exception\AccessDeniedException;
 class ContactController
 {
     /**
-     * @var EventDispatcherInterface
+     * @var FormInterface
      */
-    private $eventDispatcher;
+    protected $form;
 
     /**
-     * @var FormFactory
+     * @var ContactFormHandler
      */
-    private $formFactory;
+    protected $formHandler;
 
     /**
      * @var ContactManagerInterface
      */
-    private $contactManager;
+    protected $contactManager;
 
     /**
      * @var RouterInterface
      */
-    private $router;
+    protected $router;
 
     /**
      * @var SessionInterface
      */
-    private $session;
+    protected $session;
 
     /**
      * @var EngineInterface
      */
-    private $templating;
+    protected $templating;
 
     /**
      * Constructor
      *
-     * @param EventDispatcherInterface $eventDispatcher An event dispatcher instance
-     * @param FormFactory              $formFactory     A form factory instance
-     * @param ContactManagerInterface  $contactManager  A contact manager instance
+     * @param FormInterface            $form            A contact form
+     * @param ContactFormHandler       $formHandler     A contact form handler
+     * @param ContactManagerInterface  $contactManager  A contact manager
+     * @param FormHandler              $formHandler     A contact manager instance
      * @param RouterInterface          $router          A router instance
      * @param SessionInterface         $session         A session instance
      * @param EngineInterface          $templating      A templating instance
      */
-    public function __construct(EventDispatcherInterface $eventDispatcher, FormFactory $formFactory, ContactManagerInterface $contactManager, RouterInterface $router, SessionInterface $session, EngineInterface $templating)
+    public function __construct(FormInterface $form, ContactFormHandler $formHandler, ContactManagerInterface $contactManager, RouterInterface $router, SessionInterface $session, EngineInterface $templating)
     {
-        $this->eventDispatcher = $eventDispatcher;
-        $this->formFactory     = $formFactory;
-        $this->contactManager  = $contactManager;
-        $this->router          = $router;
-        $this->session         = $session;
-        $this->templating      = $templating;
+        $this->formHandler    = $formHandler;
+        $this->form           = $form;
+        $this->contactManager = $contactManager;
+        $this->router         = $router;
+        $this->session        = $session;
+        $this->templating     = $templating;
     }
 
     /**
@@ -88,36 +88,21 @@ class ContactController
      *
      * @param Request $request
      *
-     * @return \Symfony\Component\HttpFoundation\Response|RedirectResponse
+     * @return Response
      */
     public function indexAction(Request $request)
     {
         $contact = $this->contactManager->create();
 
-        $this->eventDispatcher->dispatch(ContactEvents::FORM_INITIALIZE, new ContactEvent($contact, $request));
-
-        $form = $this->formFactory->createForm($contact);
-
-        $form->handleRequest($request);
-
-        if ($form->isValid()) {
-            $event = new FormEvent($form, $request);
-            $this->eventDispatcher->dispatch(ContactEvents::FORM_SUCCESS, $event);
-
-            if (null === $response = $event->getResponse()) {
-                $response = new RedirectResponse($this->router->generate('mremi_contact_confirmation'));
-            }
-
-            $this->contactManager->save($contact, true);
+        $response = $this->formHandler->process($contact);
+        if ($response instanceof Response) {
             $this->session->set('mremi_contact_data', $contact);
-
-            $this->eventDispatcher->dispatch(ContactEvents::FORM_COMPLETED, new FilterContactResponseEvent($contact, $request, $response));
 
             return $response;
         }
 
         return $this->templating->renderResponse('MremiContactBundle:Contact:index.html.twig', array(
-            'form' => $form->createView(),
+            'form' => $this->form->createView(),
         ));
     }
 
@@ -131,9 +116,10 @@ class ContactController
     public function confirmAction()
     {
         $contact = $this->session->get('mremi_contact_data');
+        $this->session->remove('mremi_contact_data');
 
         if (!$contact) {
-            throw new AccessDeniedException('Please fill the contact form');
+            return new RedirectResponse($this->router->generate('mremi_contact_form'));
         }
 
         return $this->templating->renderResponse('MremiContactBundle:Contact:confirm.html.twig', array(

@@ -40,6 +40,7 @@ class Configuration implements ConfigurationInterface
                     ->children()
                         ->scalarNode('type')->defaultValue('mremi_contact')->cannotBeEmpty()->end()
                         ->scalarNode('name')->defaultValue('contact_form')->cannotBeEmpty()->end()
+                        ->scalarNode('handler')->defaultValue('mremi_contact.form.handler.default')->cannotBeEmpty()->end()
                         ->arrayNode('validation_groups')
                             ->prototype('scalar')->end()
                             ->defaultValue(array('Default'))
