@@ -153,6 +153,7 @@ fruitware_contact:
 
     form:
         type:              fruitware_contact_base # or fruitware_contact_full for Fruitware\ContactBundle\Model\Contact
+        handler:           fruitware_contact.form.handler.default
         name:              contact_form
         validation_groups: [Default]
         subject_provider:  fruitware_contact.subject_provider.noop
