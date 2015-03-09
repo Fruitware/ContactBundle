@@ -11,13 +11,13 @@
 
 namespace Fruitware\ContactBundle\Entity;
 
-use Fruitware\ContactBundle\Model\Contact as BaseContact;
+use Fruitware\ContactBundle\Model\Contact as ContactModel;
 
 /**
  * Abstract Contact class
  *
  * @author Coroliov Oleg <coroliov.o@fruitware.ru>
  */
-abstract class Contact extends BaseContact
+abstract class Contact extends ContactModel
 {
 }
