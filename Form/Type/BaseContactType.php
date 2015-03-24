@@ -51,9 +51,8 @@ class BaseContactType extends AbstractType
     {
         $builder
             ->add('firstName', 'text',  array('label' => 'fruitware_contact.form.first_name'))
-            ->add('email',     'email', array('label' => 'fruitware_contact.form.email'));
-
-        $builder->add('message', 'textarea', array('label' => 'fruitware_contact.form.message'));
+            ->add('email',     'email', array('label' => 'fruitware_contact.form.email'))
+            ->add('message', 'textarea', array('label' => 'fruitware_contact.form.message'));
 
         if ($this->captchaType) {
             $builder->add('captcha', $this->captchaType, array(

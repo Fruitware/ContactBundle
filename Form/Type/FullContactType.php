@@ -49,24 +49,27 @@ class FullContactType extends BaseContactType
     {
         parent::buildForm($builder, $options);
 
-        $builder->add('lastName',  'text',  array(
-            'label' => 'fruitware_contact.form.last_name',
-            'position' => array('after' => 'firstName')
-        ));
+        $builder
+            ->add('firstName', 'text',  array('label' => 'fruitware_contact.form.first_name'))
+            ->add('lastName',  'text',  array('label' => 'fruitware_contact.form.last_name'))
+            ->add('email',     'email', array('label' => 'fruitware_contact.form.email'));
 
         if ($subjects = $this->subjectProvider->getSubjects()) {
-            $builder
-                ->add('subject', 'choice', array(
-                    'choices' => $subjects,
-                    'label'   => 'fruitware_contact.form.subject',
-                    'position' => array('before' => 'message')
-                ));
+            $builder->add('subject', 'choice', array('choices' => $subjects, 'label'   => 'fruitware_contact.form.subject'));
         } else {
-            $builder->add('subject', 'text', array(
-                'label' => 'fruitware_contact.form.subject',
-                'position' => array('before' => 'message')
-            ));
+            $builder->add('subject', 'text', array('label' => 'fruitware_contact.form.subject'));
         }
+
+        $builder->add('message', 'textarea', array('label' => 'fruitware_contact.form.message'));
+
+        if ($this->captchaType) {
+            $builder->add('captcha', $this->captchaType, array(
+                    'label'  => 'fruitware_contact.form.captcha',
+                    'mapped' => false
+                ));
+        }
+
+        $builder->add('save', 'submit', array('label' => 'fruitware_contact.form_submit'));
     }
 
     /**

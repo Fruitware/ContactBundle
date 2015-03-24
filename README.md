@@ -76,7 +76,6 @@ public function registerBundles()
 {
     $bundles = array(
         // ...
-        new Ivory\OrderedFormBundle\IvoryOrderedFormBundle(), // required for FruitwareContactBundle
         new Fruitware\ContactBundle\FruitwareContactBundle(),
     );
 }
